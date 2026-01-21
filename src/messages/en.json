@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "Rent a Car Venezia | Premium Car Rental in Treviso & Venice",
+    "description": "Luxury car rental experience in Treviso and Venice Marco Polo Airport. No advance payment, debit cards accepted, pay on pickup."
+  },
+  "nav": {
+    "home": "Home",
+    "fleet": "Fleet",
+    "locations": "Locations",
+    "faq": "FAQ",
+    "guide": "Guide",
+    "contact": "Contact",
+    "book": "Book"
+  },
+  "cta": {
+    "bookNow": "Book now",
+    "checkAvailability": "Check availability"
+  },
+  "hero": {
+    "headline": "Premium Car Rental in Treviso & Venice",
+    "subhead": "No advance payment. Debit cards accepted. Fast booking with a luxury concierge experience."
+  },
+  "trust": {
+    "noAdvance": "No advance payment",
+    "debitAccepted": "Debit cards accepted",
+    "insurance": "Full insurance options",
+    "airportPickup": "Airport pickup: Treviso & Venice Marco Polo"
+  },
+  "booking": {
+    "title": "Request availability",
+    "subtitle": "Pay on pickup. Final confirmation by operator.",
+    "pickupLocation": "Pick-up location",
+    "dropoffLocation": "Drop-off location",
+    "pickupDate": "Pick-up date",
+    "pickupTime": "Pick-up time",
+    "dropoffDate": "Drop-off date",
+    "dropoffTime": "Drop-off time",
+    "driverAge": "Driver age",
+    "vehicle": "Vehicle",
+    "insurance": "Insurance tier",
+    "notes": "Notes",
+    "submit": "Send request",
+    "estimatedTotal": "Estimated total",
+    "disclaimer": "Final confirmation by operator. Pay on pickup. No advance payment.",
+    "depositHint": "Deposit guidance provided on confirmation."
+  }
+}

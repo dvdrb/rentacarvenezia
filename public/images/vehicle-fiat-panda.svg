@@ -1,0 +1,7 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#1c1a18"/>
+  <rect x="60" y="60" width="1080" height="680" rx="48" fill="#141210" stroke="#c3a66b" stroke-width="3"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#c3a66b" font-family="Inter, sans-serif" font-size="48">
+    Replace with photography
+  </text>
+</svg>
