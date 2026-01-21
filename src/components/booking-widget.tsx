@@ -9,6 +9,7 @@ import { vehicles } from '@/data/vehicles';
 import { locations } from '@/data/locations';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import {
   Dialog,
@@ -123,11 +124,18 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
 
   return (
     <Card className={cn('rounded-2xl p-5 md:p-6', className)}>
-      <div className="mb-6">
-        <h3 className="text-xl font-semibold">Richiedi disponibilità</h3>
-        <p className="text-sm text-[#c0b6a8]">
-          Nessun pagamento anticipato. Conferma rapida via WhatsApp, telefono o email.
-        </p>
+      <div className="mb-6 space-y-3">
+        <div className="flex flex-wrap gap-2">
+          <Badge variant="muted">Nessun anticipo</Badge>
+          <Badge variant="muted">Debito accettato</Badge>
+          <Badge variant="muted">Pagamento al ritiro</Badge>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold">Richiedi disponibilità</h3>
+          <p className="text-sm text-[#c0b6a8]">
+            Nessun pagamento anticipato. Conferma rapida via WhatsApp, telefono o email.
+          </p>
+        </div>
       </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-5">
         <div className="grid gap-4 md:grid-cols-2">

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { BadgeCheck, CreditCard, Sparkles } from 'lucide-react';
 
 import { BookingWidget } from '@/components/booking-widget';
 import { FleetCard } from '@/components/fleet-card';
@@ -65,6 +66,7 @@ export default function HomePage() {
             priority
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-background/10 to-background" />
         <div className="relative">
           <div className="container grid gap-10 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr]">
             <HeroContent
@@ -82,6 +84,39 @@ export default function HomePage() {
             <BookingWidget className="bg-background/90" />
           </div>
         </div>
+      </section>
+
+      <section className="container -mt-6 grid gap-4 pb-12 md:-mt-10 md:grid-cols-3 md:pb-6">
+        {[
+          {
+            title: 'Zero anticipo',
+            description: 'Prenota senza pagamento anticipato e con conferma concierge.',
+            icon: BadgeCheck,
+          },
+          {
+            title: 'Carta di debito ok',
+            description: 'Nessuna carta di credito obbligatoria, paghi al ritiro.',
+            icon: CreditCard,
+          },
+          {
+            title: 'Esperienza luxury',
+            description: 'Veicoli curati, consegne puntuali e assistenza dedicata.',
+            icon: Sparkles,
+          },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="flex gap-4 rounded-2xl border border-border bg-background/90 p-5 shadow-[0_18px_40px_-35px_rgba(222,178,119,0.65)]"
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-accent/40 text-accent">
+              <item.icon className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold">{item.title}</p>
+              <p className="mt-1 text-sm text-[#c0b6a8]">{item.description}</p>
+            </div>
+          </div>
+        ))}
       </section>
 
       <section className="container py-14 md:py-16">
