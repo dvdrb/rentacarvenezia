@@ -13,11 +13,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ContactPage() {
   return (
-    <main className="container py-16">
+    <main className="container py-14 md:py-16">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p className="text-xs uppercase tracking-widest text-accent">Contatti</p>
-          <h1 className="mt-2 text-4xl font-serif">Pianifichiamo il tuo arrivo</h1>
+          <h1 className="mt-2 text-3xl font-serif md:text-4xl">Pianifichiamo il tuo arrivo</h1>
           <p className="mt-3 text-sm text-[#c0b6a8]">
             Chiama, scrivi su WhatsApp o invia un’email per supporto immediato. Rispondiamo rapidamente
             in orario ufficio.

@@ -64,7 +64,7 @@ export function FleetFilterGrid() {
 
   return (
     <div>
-      <div className="mt-10 grid gap-4 rounded-2xl border border-border bg-muted/60 p-6 md:grid-cols-5">
+      <div className="mt-8 grid gap-4 rounded-2xl border border-border bg-muted/60 p-5 md:mt-10 md:grid-cols-5 md:p-6">
         <label className="flex flex-col gap-2 text-sm">
           Categoria
           <select

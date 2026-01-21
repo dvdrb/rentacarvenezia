@@ -12,11 +12,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function BookPage() {
   return (
-    <main className="container py-16">
+    <main className="container py-14 md:py-16">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
           <p className="text-xs uppercase tracking-widest text-accent">Prenotazione</p>
-          <h1 className="mt-2 text-4xl font-serif">Disponibilità e preventivo</h1>
+          <h1 className="mt-2 text-3xl font-serif md:text-4xl">Disponibilità e preventivo</h1>
           <p className="mt-4 text-sm text-[#c0b6a8]">
             Invia la richiesta e ricevi conferma concierge via WhatsApp, telefono o email.
           </p>
@@ -26,7 +26,7 @@ export default function BookPage() {
               { title: '2. Conferma', detail: 'Confermiamo disponibilità e prezzo finale.' },
               { title: '3. Ritiro', detail: 'Pagamento al ritiro. Nessun anticipo richiesto.' },
             ].map((step) => (
-              <div key={step.title} className="rounded-xl border border-border bg-muted/60 p-5">
+              <div key={step.title} className="rounded-xl border border-border bg-muted/60 p-5 md:p-6">
                 <p className="text-sm font-semibold">{step.title}</p>
                 <p className="text-sm text-[#c0b6a8]">{step.detail}</p>
               </div>

@@ -63,15 +63,15 @@ const faqItems = [
 
 export default function FaqPage() {
   return (
-    <main className="container py-16">
+    <main className="container py-14 md:py-16">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-widest text-accent">FAQ</p>
-        <h1 className="mt-2 text-4xl font-serif">Risposte con chiarezza</h1>
+        <h1 className="mt-2 text-3xl font-serif md:text-4xl">Risposte con chiarezza</h1>
         <p className="mt-3 text-sm text-[#c0b6a8]">
           Ogni dettaglio è pensato per rendere il viaggio senza pensieri.
         </p>
       </div>
-      <Accordion type="single" collapsible className="mt-10">
+      <Accordion type="single" collapsible className="mt-8 md:mt-10">
         {faqItems.map((item) => (
           <AccordionItem key={item.question} value={item.question}>
             <AccordionTrigger>{item.question}</AccordionTrigger>

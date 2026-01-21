@@ -9,7 +9,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-muted">
-      <div className="container grid gap-10 py-12 md:grid-cols-[2fr_1fr_1fr]">
+      <div className="container grid gap-8 py-10 md:grid-cols-[2fr_1fr_1fr] md:py-12">
         <div>
           <h3 className="text-lg font-semibold">rentacarvenezia.it</h3>
           <p className="mt-3 text-sm text-[#c0b6a8]">

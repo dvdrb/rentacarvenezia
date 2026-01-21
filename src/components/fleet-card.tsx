@@ -32,12 +32,12 @@ export function FleetCard({ vehicle }: FleetCardProps) {
         <div className="text-sm text-[#c0b6a8]">
           {vehicle.transmission} • {vehicle.passengers} posti • {vehicle.doors} porte
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-widest text-[#c0b6a8]">Da</p>
             <p className="text-xl font-semibold">€{minRate}/giorno</p>
           </div>
-          <Button asChild size="sm" variant="outline">
+          <Button asChild size="sm" variant="outline" className="w-full sm:w-auto">
             <Link href={`/fleet/${vehicle.slug}`}>Dettagli</Link>
           </Button>
         </div>

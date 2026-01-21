@@ -122,7 +122,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
   };
 
   return (
-    <Card className={cn('p-6', className)}>
+    <Card className={cn('rounded-2xl p-5 md:p-6', className)}>
       <div className="mb-6">
         <h3 className="text-xl font-semibold">Richiedi disponibilità</h3>
         <p className="text-sm text-[#c0b6a8]">
@@ -281,7 +281,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
             </Dialog>
           </div>
         </div>
-        <Button type="submit" size="lg">
+        <Button type="submit" size="lg" className="w-full">
           Invia richiesta
         </Button>
       </form>

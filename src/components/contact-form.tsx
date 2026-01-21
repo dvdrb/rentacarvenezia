@@ -32,7 +32,7 @@ export function ContactForm() {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-5 md:p-6">
       <h2 className="text-xl font-semibold">Invia un messaggio</h2>
       <p className="mt-2 text-sm text-[#c0b6a8]">TODO: collegare email/CRM in produzione.</p>
       <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-4">

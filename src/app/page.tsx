@@ -66,7 +66,7 @@ export default function HomePage() {
           />
         </div>
         <div className="relative">
-          <div className="container grid gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="container grid gap-10 py-14 md:py-20 lg:grid-cols-[1.1fr_0.9fr]">
             <HeroContent
               headline="Noleggio auto premium a Treviso e Venezia"
               subhead="Nessun pagamento anticipato. Carte di debito accettate. Conferma rapida."
@@ -84,13 +84,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container py-16">
-        <div className="flex items-center justify-between">
+      <section className="container py-14 md:py-16">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs uppercase tracking-widest text-accent">Flotta in evidenza</p>
-            <h2 className="mt-2 text-3xl font-serif">Veicoli selezionati</h2>
+            <h2 className="mt-2 text-2xl font-serif md:text-3xl">Veicoli selezionati</h2>
           </div>
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="w-full md:w-auto">
             <Link href="/fleet">Vedi tutti</Link>
           </Button>
         </div>
@@ -101,11 +101,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-muted py-16">
+      <section className="bg-muted py-14 md:py-16">
         <div className="container grid gap-8 lg:grid-cols-3">
           <div>
             <p className="text-xs uppercase tracking-widest text-accent">Come funziona</p>
-            <h2 className="mt-2 text-3xl font-serif">Un percorso concierge</h2>
+            <h2 className="mt-2 text-2xl font-serif md:text-3xl">Un percorso concierge</h2>
             <p className="mt-4 text-sm text-[#c0b6a8]">
               Studiato per rapidità, chiarezza e un’esperienza di viaggio raffinata.
             </p>
@@ -116,36 +116,36 @@ export default function HomePage() {
               { title: 'Invia la richiesta', detail: 'Confermiamo la disponibilità in poche ore.' },
               { title: 'Conferma con il team', detail: 'Supporto via WhatsApp, telefono o email.' },
             ].map((step, index) => (
-              <div key={step.title} className="rounded-xl border border-border bg-background p-6">
+              <div key={step.title} className="rounded-xl border border-border bg-background p-5 md:p-6">
                 <p className="text-xs uppercase tracking-widest text-accent">0{index + 1}</p>
                 <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-[#c0b6a8]">{step.detail}</p>
               </div>
             ))}
           </div>
-          <div className="rounded-2xl border border-border bg-background p-6">
+          <div className="rounded-2xl border border-border bg-background p-5 md:p-6">
             <p className="text-xs uppercase tracking-widest text-accent">Promessa luxury</p>
-            <h3 className="mt-2 text-xl font-serif">Pronti al tuo arrivo</h3>
+            <h3 className="mt-2 text-lg font-serif md:text-xl">Pronti al tuo arrivo</h3>
             <p className="mt-2 text-sm text-[#c0b6a8]">
               Programmiamo il ritiro a Venezia Marco Polo e Treviso con coordinamento in tempo reale.
             </p>
-            <Button asChild className="mt-6" variant="outline">
+            <Button asChild className="mt-6 w-full md:w-auto" variant="outline">
               <Link href="/locations">Vedi i punti di ritiro</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="container py-16">
+      <section className="container py-14 md:py-16">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
           <div>
             <p className="text-xs uppercase tracking-widest text-accent">Testimonianze</p>
-            <h2 className="mt-2 text-3xl font-serif">Ospiti che viaggiano con noi</h2>
+            <h2 className="mt-2 text-2xl font-serif md:text-3xl">Ospiti che viaggiano con noi</h2>
             <div className="mt-6 space-y-4">
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.name}
-                  className="rounded-xl border border-border bg-muted/60 p-6"
+                  className="rounded-xl border border-border bg-muted/60 p-5 md:p-6"
                 >
                   <p className="text-sm text-[#c0b6a8]">“{testimonial.quote}”</p>
                   <p className="mt-3 text-xs uppercase tracking-widest text-accent">
@@ -157,7 +157,7 @@ export default function HomePage() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest text-accent">FAQ</p>
-            <h2 className="mt-2 text-3xl font-serif">Risposte prima del viaggio</h2>
+            <h2 className="mt-2 text-2xl font-serif md:text-3xl">Risposte prima del viaggio</h2>
             <Accordion type="single" collapsible className="mt-6">
               {faqs.map((faq) => (
                 <AccordionItem key={faq.question} value={faq.question}>
@@ -166,7 +166,7 @@ export default function HomePage() {
                 </AccordionItem>
               ))}
             </Accordion>
-            <Button asChild variant="outline" className="mt-6">
+            <Button asChild variant="outline" className="mt-6 w-full md:w-auto">
               <Link href="/faq">Vai alle FAQ complete</Link>
             </Button>
           </div>

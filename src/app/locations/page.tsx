@@ -15,18 +15,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function LocationsPage() {
   return (
-    <main className="container py-16">
+    <main className="container py-14 md:py-16">
       <div className="flex flex-col gap-4">
         <p className="text-xs uppercase tracking-widest text-accent">Sedi</p>
-        <h1 className="text-4xl font-serif">Punti di ritiro a Venezia e Treviso</h1>
+        <h1 className="text-3xl font-serif md:text-4xl">Punti di ritiro a Venezia e Treviso</h1>
         <p className="max-w-2xl text-sm text-[#c0b6a8]">
           Venezia Marco Polo Arrivi 1 e l’ufficio di Treviso garantiscono consegne rapide e senza
           attese.
         </p>
       </div>
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-2">
         {locations.slice(0, 2).map((location) => (
-          <Card key={location.id} className="p-6">
+          <Card key={location.id} className="p-5 md:p-6">
             <div className="flex items-start gap-3">
               <MapPin className="h-5 w-5 text-accent" />
               <div>
@@ -45,7 +45,7 @@ export default function LocationsPage() {
           </Card>
         ))}
       </div>
-      <div className="mt-10 rounded-2xl border border-border bg-muted/60 p-6 text-sm text-[#c0b6a8]">
+      <div className="mt-8 rounded-2xl border border-border bg-muted/60 p-5 text-sm text-[#c0b6a8] md:mt-10 md:p-6">
         <p className="text-xs uppercase tracking-widest text-accent">Contesto ritiro</p>
         <p className="mt-3">
           I ritiri a Venezia Marco Polo sono coordinati presso Arrivi 1. Le prenotazioni di Treviso

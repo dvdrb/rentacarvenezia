@@ -56,13 +56,13 @@ export default function VehicleDetailPage({
 
   return (
     <main>
-      <section className="relative h-[420px]">
+      <section className="relative h-[320px] md:h-[420px]">
         <Image src={vehicle.image} alt={vehicle.name} fill className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-background/90" />
         <div className="container relative flex h-full items-end pb-12">
           <div>
             <Badge variant="muted">{vehicle.category}</Badge>
-            <h1 className="mt-4 text-4xl font-serif">{vehicle.name}</h1>
+            <h1 className="mt-4 text-3xl font-serif md:text-4xl">{vehicle.name}</h1>
             <p className="mt-2 text-sm text-[#c0b6a8]">
               {vehicle.transmission} • {vehicle.passengers} posti • {vehicle.doors} porte •{' '}
               {vehicle.airConditioning ? 'Climatizzata' : 'Senza clima'}
@@ -71,17 +71,17 @@ export default function VehicleDetailPage({
         </div>
       </section>
 
-      <section className="container grid gap-10 py-16 lg:grid-cols-[1.2fr_0.8fr]">
+      <section className="container grid gap-10 py-14 md:py-16 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="space-y-10">
           <div className="grid gap-4 md:grid-cols-2">
             {vehicle.gallery.map((image) => (
-              <div key={image} className="relative h-56 overflow-hidden rounded-xl border border-border">
+              <div key={image} className="relative h-52 overflow-hidden rounded-xl border border-border md:h-56">
                 <Image src={image} alt={vehicle.name} fill className="object-cover" />
               </div>
             ))}
           </div>
 
-          <Card className="p-6">
+          <Card className="p-5 md:p-6">
             <h2 className="text-xl font-semibold">Fasce tariffarie</h2>
             <p className="mt-2 text-sm text-[#c0b6a8]">Tariffe giornaliere in base alla durata.</p>
             <div className="mt-6 grid gap-4">
@@ -100,7 +100,7 @@ export default function VehicleDetailPage({
             </div>
           </Card>
 
-          <Card className="p-6">
+          <Card className="p-5 md:p-6">
             <h2 className="text-xl font-semibold">Opzioni assicurative</h2>
             <p className="mt-2 text-sm text-[#c0b6a8]">
               Scegli il livello di copertura che preferisci.
@@ -130,7 +130,7 @@ export default function VehicleDetailPage({
 
         <div className="space-y-6">
           <BookingWidget vehicleSlug={vehicle.slug} requireVehicle />
-          <Card className="p-6 text-sm text-[#c0b6a8]">
+          <Card className="p-5 text-sm text-[#c0b6a8] md:p-6">
             <p className="text-xs uppercase tracking-widest text-accent">Riepilogo tariffe</p>
             <p className="mt-3">
               Da €{Math.min(...vehicle.rates.map((rate) => rate.pricePerDay))}/giorno — prezzo

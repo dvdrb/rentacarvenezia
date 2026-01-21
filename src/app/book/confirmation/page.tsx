@@ -14,10 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ConfirmationPage() {
   return (
-    <main className="container py-20">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-muted/60 p-10 text-center">
+    <main className="container py-16 md:py-20">
+      <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-muted/60 p-6 text-center md:p-10">
         <CheckCircle className="mx-auto h-12 w-12 text-accent" />
-        <h1 className="mt-4 text-3xl font-serif">Richiesta ricevuta</h1>
+        <h1 className="mt-4 text-2xl font-serif md:text-3xl">Richiesta ricevuta</h1>
         <p className="mt-3 text-sm text-[#c0b6a8]">
           Il nostro team concierge confermerà a breve la disponibilità e invierà il riepilogo. Per
           assistenza immediata contattaci direttamente.
