@@ -4,8 +4,6 @@ import * as React from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
-import { usePathname } from 'next/navigation';
 
 import { vehicles } from '@/data/vehicles';
 import { locations } from '@/data/locations';
@@ -24,13 +22,13 @@ import { estimateTotal, insuranceRates, type InsuranceTier } from '@/lib/pricing
 
 const bookingSchema = z
   .object({
-    pickupLocation: z.string().min(1, 'Select a pick-up location.'),
-    dropoffLocation: z.string().min(1, 'Select a drop-off location.'),
-    pickupDate: z.string().min(1, 'Select a pick-up date.'),
-    pickupTime: z.string().min(1, 'Select a pick-up time.'),
-    dropoffDate: z.string().min(1, 'Select a drop-off date.'),
-    dropoffTime: z.string().min(1, 'Select a drop-off time.'),
-    driverAge: z.coerce.number().min(23, 'Driver must be at least 23.'),
+    pickupLocation: z.string().min(1, 'Seleziona il luogo di ritiro.'),
+    dropoffLocation: z.string().min(1, 'Seleziona il luogo di consegna.'),
+    pickupDate: z.string().min(1, 'Seleziona la data di ritiro.'),
+    pickupTime: z.string().min(1, 'Seleziona l’orario di ritiro.'),
+    dropoffDate: z.string().min(1, 'Seleziona la data di consegna.'),
+    dropoffTime: z.string().min(1, 'Seleziona l’orario di consegna.'),
+    driverAge: z.coerce.number().min(23, 'Il conducente deve avere almeno 23 anni.'),
     vehicle: z.string().optional(),
     insurance: z.enum(['Basic', 'Medium', 'Premium']),
     notes: z.string().optional(),
@@ -43,7 +41,7 @@ const bookingSchema = z
       return dropoff > pickup;
     },
     {
-      message: 'Drop-off must be after pick-up.',
+      message: 'La consegna deve essere successiva al ritiro.',
       path: ['dropoffDate'],
     }
   );
@@ -71,14 +69,11 @@ type BookingWidgetProps = {
 };
 
 export function BookingWidget({ vehicleSlug, className, requireVehicle = false }: BookingWidgetProps) {
-  const t = useTranslations('booking');
-  const pathname = usePathname();
-  const locale = pathname.split('/')[1] || 'en';
   const form = useForm<BookingFormValues>({
     resolver: zodResolver(
       bookingSchema.refine(
         (values) => (requireVehicle ? Boolean(values.vehicle) : true),
-        { message: 'Select a vehicle.', path: ['vehicle'] }
+        { message: 'Seleziona un veicolo.', path: ['vehicle'] }
       )
     ),
     defaultValues: {
@@ -123,19 +118,21 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
     });
-    window.location.href = `/${locale}/book/confirmation`;
+    window.location.href = '/book/confirmation';
   };
 
   return (
     <Card className={cn('p-6', className)}>
       <div className="mb-6">
-        <h3 className="text-xl font-semibold">{t('title')}</h3>
-        <p className="text-sm text-[#c0b6a8]">{t('subtitle')}</p>
+        <h3 className="text-xl font-semibold">Richiedi disponibilità</h3>
+        <p className="text-sm text-[#c0b6a8]">
+          Nessun pagamento anticipato. Conferma rapida via WhatsApp, telefono o email.
+        </p>
       </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-5">
         <div className="grid gap-4 md:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm">
-            {t('pickupLocation')}
+            Luogo di ritiro
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('pickupLocation')}
@@ -148,7 +145,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
             </select>
           </label>
           <label className="flex flex-col gap-2 text-sm">
-            {t('dropoffLocation')}
+            Luogo di consegna
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('dropoffLocation')}
@@ -163,7 +160,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm">
-            {t('pickupDate')}
+            Data ritiro
             <input
               type="date"
               className="h-11 rounded-full border border-border bg-background px-4"
@@ -171,7 +168,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
             />
           </label>
           <label className="flex flex-col gap-2 text-sm">
-            {t('pickupTime')}
+            Orario ritiro
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('pickupTime')}
@@ -186,7 +183,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm">
-            {t('dropoffDate')}
+            Data consegna
             <input
               type="date"
               className="h-11 rounded-full border border-border bg-background px-4"
@@ -195,7 +192,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
             <span className="text-xs text-[#c0b6a8]">{form.formState.errors.dropoffDate?.message}</span>
           </label>
           <label className="flex flex-col gap-2 text-sm">
-            {t('dropoffTime')}
+            Orario consegna
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('dropoffTime')}
@@ -210,7 +207,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           <label className="flex flex-col gap-2 text-sm">
-            {t('driverAge')}
+            Età conducente
             <input
               type="number"
               min={23}
@@ -220,12 +217,12 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
             <span className="text-xs text-[#c0b6a8]">{form.formState.errors.driverAge?.message}</span>
           </label>
           <label className="flex flex-col gap-2 text-sm md:col-span-2">
-            {t('vehicle')}
+            Veicolo
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('vehicle')}
             >
-              <option value="">Select a vehicle</option>
+              <option value="">Seleziona un veicolo</option>
               {vehicles.map((vehicle) => (
                 <option key={vehicle.id} value={vehicle.slug}>
                   {vehicle.name}
@@ -237,23 +234,23 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           <label className="flex flex-col gap-2 text-sm">
-            {t('insurance')}
+            Assicurazione
             <select
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('insurance')}
             >
               {Object.entries(insuranceRates).map(([tier, rate]) => (
                 <option key={tier} value={tier}>
-                  {tier} (+€{rate}/day)
+                  {tier} (+€{rate}/giorno)
                 </option>
               ))}
             </select>
           </label>
           <label className="flex flex-col gap-2 text-sm">
-            {t('notes')}
+            Note
             <input
               type="text"
-              placeholder="Flight number, delivery notes"
+              placeholder="Numero volo, note di consegna"
               className="h-11 rounded-full border border-border bg-background px-4"
               {...form.register('notes')}
             />
@@ -262,23 +259,22 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
         <input type="text" className="hidden" tabIndex={-1} autoComplete="off" {...form.register('honey')} />
         <div className="rounded-xl border border-border bg-muted/60 p-4 text-sm">
           <div className="flex items-center justify-between text-base font-semibold">
-            <span>{t('estimatedTotal')}</span>
-            <span>
-              {estimate ? `€${estimate.total.toFixed(0)}` : '—'}
-            </span>
+            <span>Totale stimato</span>
+            <span>{estimate ? `€${estimate.total.toFixed(0)}` : '—'}</span>
           </div>
-          <p className="mt-2 text-xs text-[#c0b6a8]">{t('disclaimer')}</p>
+          <p className="mt-2 text-xs text-[#c0b6a8]">
+            Conferma finale da parte del team. Pagamento al ritiro, nessun anticipo.
+          </p>
           <div className="flex flex-wrap items-center gap-2 text-xs text-[#c0b6a8]">
-            <span>{t('depositHint')}</span>
+            <span>Il deposito varia in base a veicolo e copertura.</span>
             <Dialog>
-              <DialogTrigger className="text-accent hover:underline">Deposit guidance</DialogTrigger>
+              <DialogTrigger className="text-accent hover:underline">Guida deposito</DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Deposit guidance</DialogTitle>
+                  <DialogTitle>Guida deposito</DialogTitle>
                   <DialogDescription>
-                    Deposits and excess amounts vary by vehicle class and insurance tier. Our
-                    concierge shares the exact amounts before pickup so you can confirm with
-                    confidence.
+                    Deposito e franchigia variano in base alla classe del veicolo e al livello di
+                    copertura. Comunichiamo sempre gli importi esatti prima del ritiro.
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
@@ -286,7 +282,7 @@ export function BookingWidget({ vehicleSlug, className, requireVehicle = false }
           </div>
         </div>
         <Button type="submit" size="lg">
-          {t('submit')}
+          Invia richiesta
         </Button>
       </form>
     </Card>

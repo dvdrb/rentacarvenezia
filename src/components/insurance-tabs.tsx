@@ -6,20 +6,20 @@ const tiers = [
   {
     value: 'basic',
     label: 'Basic',
-    price: '€0/day',
-    description: 'Essential coverage with standard deposit and excess policies.'
+    price: '€0/giorno',
+    description: 'Copertura essenziale con deposito e franchigia standard.'
   },
   {
     value: 'medium',
     label: 'Medium',
-    price: '€15/day',
-    description: 'Reduced excess and added peace of mind for longer routes.'
+    price: '€15/giorno',
+    description: 'Franchigia ridotta e maggiore tranquillità sui percorsi lunghi.'
   },
   {
     value: 'premium',
     label: 'Premium',
-    price: '€25/day',
-    description: 'Maximum coverage for stress-free luxury travel.'
+    price: '€25/giorno',
+    description: 'Copertura massima per viaggi senza stress.'
   }
 ];
 

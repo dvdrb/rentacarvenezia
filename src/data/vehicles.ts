@@ -36,10 +36,10 @@ export const vehicles: Vehicle[] = [
     doors: 3,
     fuel: 'Diesel',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 58 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 52 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 45 },
-      { label: '30+ days', minDays: 30, pricePerDay: 39 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 58 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 52 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 45 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 39 }
     ]
   },
   {
@@ -55,10 +55,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 62 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 55 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 48 },
-      { label: '30+ days', minDays: 30, pricePerDay: 42 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 62 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 55 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 48 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 42 }
     ]
   },
   {
@@ -74,10 +74,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 75 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 68 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 60 },
-      { label: '30+ days', minDays: 30, pricePerDay: 52 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 75 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 68 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 60 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 52 }
     ]
   },
   {
@@ -93,10 +93,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 55 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 48 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 42 },
-      { label: '30+ days', minDays: 30, pricePerDay: 36 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 55 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 48 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 42 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 36 }
     ]
   },
   {
@@ -112,10 +112,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Diesel',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 68 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 60 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 52 },
-      { label: '30+ days', minDays: 30, pricePerDay: 46 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 68 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 60 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 52 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 46 }
     ]
   },
   {
@@ -131,10 +131,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Hybrid',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 82 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 74 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 66 },
-      { label: '30+ days', minDays: 30, pricePerDay: 58 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 82 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 74 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 66 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 58 }
     ]
   },
   {
@@ -150,10 +150,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 60 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 53 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 47 },
-      { label: '30+ days', minDays: 30, pricePerDay: 40 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 60 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 53 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 47 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 40 }
     ]
   },
   {
@@ -169,10 +169,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 64 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 57 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 49 },
-      { label: '30+ days', minDays: 30, pricePerDay: 42 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 64 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 57 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 49 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 42 }
     ]
   },
   {
@@ -188,10 +188,10 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Petrol',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 88 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 78 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 70 },
-      { label: '30+ days', minDays: 30, pricePerDay: 62 }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 88 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 78 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 70 },
+      { label: '30+ giorni', minDays: 30, pricePerDay: 62 }
     ]
   },
   {
@@ -207,10 +207,15 @@ export const vehicles: Vehicle[] = [
     doors: 5,
     fuel: 'Diesel',
     rates: [
-      { label: '3-5 days', minDays: 3, maxDays: 5, pricePerDay: 92 },
-      { label: '6-14 days', minDays: 6, maxDays: 14, pricePerDay: 82 },
-      { label: '15-29 days', minDays: 15, maxDays: 29, pricePerDay: 74 },
-      { label: '30+ days', minDays: 30, pricePerDay: 66, note: 'TODO: confirm 30+ day pricing for Dacia Duster.' }
+      { label: '3-5 giorni', minDays: 3, maxDays: 5, pricePerDay: 92 },
+      { label: '6-14 giorni', minDays: 6, maxDays: 14, pricePerDay: 82 },
+      { label: '15-29 giorni', minDays: 15, maxDays: 29, pricePerDay: 74 },
+      {
+        label: '30+ giorni',
+        minDays: 30,
+        pricePerDay: 66,
+        note: 'TODO: confermare la tariffa 30+ giorni per Dacia Duster.'
+      }
     ]
   }
 ];

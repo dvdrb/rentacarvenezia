@@ -3,10 +3,8 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Menu } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { Menu } from 'lucide-react';
 
-import { locales } from '@/i18n/request';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,67 +16,46 @@ import {
 } from '@/components/ui/sheet';
 
 const navItems = [
-  { key: 'home', href: '/' },
-  { key: 'fleet', href: '/fleet' },
-  { key: 'locations', href: '/locations' },
-  { key: 'faq', href: '/faq' },
-  { key: 'guide', href: '/guide' },
-  { key: 'contact', href: '/contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Flotta', href: '/fleet' },
+  { label: 'Sedi', href: '/locations' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Guida', href: '/guide' },
+  { label: 'Contatti', href: '/contact' },
 ];
 
 export function Header() {
-  const t = useTranslations('nav');
   const pathname = usePathname();
-
-  const locale = pathname.split('/')[1] || 'en';
-  const normalizedPath = `/${pathname.split('/').slice(2).join('/')}`;
+  const normalizedPath = pathname === '' ? '/' : pathname;
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
       <div className="container flex h-20 items-center justify-between">
-        <Link href={`/${locale}`} className="text-lg font-semibold tracking-wide">
+        <Link href="/" className="text-lg font-semibold tracking-wide">
           rentacarvenezia<span className="text-accent">.it</span>
         </Link>
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <Link
-              key={item.key}
-              href={`/${locale}${item.href}`}
+              key={item.label}
+              href={item.href}
               className={cn(
                 'text-sm text-[#c0b6a8] transition hover:text-accent',
                 normalizedPath === item.href && 'text-accent'
               )}
             >
-              {t(item.key)}
+              {item.label}
             </Link>
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <div className="flex items-center gap-2 rounded-full border border-border px-3 py-2 text-xs uppercase tracking-widest text-[#c0b6a8]">
-            <Globe className="h-3.5 w-3.5" />
-            <select
-              aria-label="Select language"
-              className="bg-transparent text-xs uppercase tracking-widest text-[#c0b6a8] focus:outline-none"
-              value={locale}
-              onChange={(event) => {
-                const newLocale = event.target.value;
-                window.location.href = `/${newLocale}${normalizedPath}`;
-              }}
-            >
-              {locales.map((loc) => (
-                <option key={loc} value={loc} className="bg-background text-foreground">
-                  {loc.toUpperCase()}
-                </option>
-              ))}
-            </select>
-          </div>
           <Button asChild size="sm">
-            <Link href={`/${locale}/book`}>{t('book')}</Link>
+            <Link href="/book">Prenota ora</Link>
           </Button>
         </div>
         <div className="flex items-center gap-3 lg:hidden">
           <Button asChild variant="outline" size="sm">
-            <Link href={`/${locale}/book`}>{t('book')}</Link>
+            <Link href="/book">Prenota ora</Link>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
@@ -88,39 +65,21 @@ export function Header() {
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                <SheetTitle>Navigation</SheetTitle>
+                <SheetTitle>Navigazione</SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col gap-4">
                 {navItems.map((item) => (
                   <Link
-                    key={item.key}
-                    href={`/${locale}${item.href}`}
+                    key={item.label}
+                    href={item.href}
                     className={cn(
                       'text-base text-[#c0b6a8] transition hover:text-accent',
                       normalizedPath === item.href && 'text-accent'
                     )}
                   >
-                    {t(item.key)}
+                    {item.label}
                   </Link>
                 ))}
-                <div className="mt-6 flex items-center gap-2 rounded-full border border-border px-3 py-2 text-xs uppercase tracking-widest text-[#c0b6a8]">
-                  <Globe className="h-3.5 w-3.5" />
-                  <select
-                    aria-label="Select language"
-                    className="bg-transparent text-xs uppercase tracking-widest text-[#c0b6a8] focus:outline-none"
-                    value={locale}
-                    onChange={(event) => {
-                      const newLocale = event.target.value;
-                      window.location.href = `/${newLocale}${normalizedPath}`;
-                    }}
-                  >
-                    {locales.map((loc) => (
-                      <option key={loc} value={loc} className="bg-background text-foreground">
-                        {loc.toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
-                </div>
               </div>
             </SheetContent>
           </Sheet>

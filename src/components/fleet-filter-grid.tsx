@@ -8,11 +8,21 @@ import { FleetCard } from '@/components/fleet-card';
 const categories = ['All', 'City', 'Compact', 'SUV', 'Hybrid'] as const;
 const transmissions = ['All', 'Manual', 'Automatic'] as const;
 
-type FleetFilterGridProps = {
-  locale: string;
+const categoryLabels: Record<(typeof categories)[number], string> = {
+  All: 'Tutte',
+  City: 'City',
+  Compact: 'Compatte',
+  SUV: 'SUV',
+  Hybrid: 'Hybrid',
 };
 
-export function FleetFilterGrid({ locale }: FleetFilterGridProps) {
+const transmissionLabels: Record<(typeof transmissions)[number], string> = {
+  All: 'Tutte',
+  Manual: 'Manuale',
+  Automatic: 'Automatica',
+};
+
+export function FleetFilterGrid() {
   const [category, setCategory] = React.useState<(typeof categories)[number]>('All');
   const [transmission, setTransmission] =
     React.useState<(typeof transmissions)[number]>('All');
@@ -56,7 +66,7 @@ export function FleetFilterGrid({ locale }: FleetFilterGridProps) {
     <div>
       <div className="mt-10 grid gap-4 rounded-2xl border border-border bg-muted/60 p-6 md:grid-cols-5">
         <label className="flex flex-col gap-2 text-sm">
-          Category
+          Categoria
           <select
             className="h-11 rounded-full border border-border bg-background px-4"
             value={category}
@@ -64,13 +74,13 @@ export function FleetFilterGrid({ locale }: FleetFilterGridProps) {
           >
             {categories.map((option) => (
               <option key={option} value={option}>
-                {option}
+                {categoryLabels[option]}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-2 text-sm">
-          Transmission
+          Trasmissione
           <select
             className="h-11 rounded-full border border-border bg-background px-4"
             value={transmission}
@@ -78,13 +88,13 @@ export function FleetFilterGrid({ locale }: FleetFilterGridProps) {
           >
             {transmissions.map((option) => (
               <option key={option} value={option}>
-                {option}
+                {transmissionLabels[option]}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-2 text-sm">
-          Seats (min)
+          Posti (minimo)
           <select
             className="h-11 rounded-full border border-border bg-background px-4"
             value={minSeats}
@@ -92,40 +102,40 @@ export function FleetFilterGrid({ locale }: FleetFilterGridProps) {
           >
             {[0, 4, 5, 7].map((option) => (
               <option key={option} value={option}>
-                {option === 0 ? 'Any' : option}
+                {option === 0 ? 'Qualsiasi' : option}
               </option>
             ))}
           </select>
         </label>
         <label className="flex flex-col gap-2 text-sm">
-          Sort by
+          Ordina per
           <select
             className="h-11 rounded-full border border-border bg-background px-4"
             value={sort}
             onChange={(event) => setSort(event.target.value as typeof sort)}
           >
-            <option value="recommended">Recommended</option>
-            <option value="price-low">Price low → high</option>
+            <option value="recommended">Consigliati</option>
+            <option value="price-low">Prezzo basso → alto</option>
           </select>
         </label>
         <label className="flex flex-col gap-2 text-sm">
-          Price range
+          Fascia prezzo
           <select
             className="h-11 rounded-full border border-border bg-background px-4"
             value={priceRange}
             onChange={(event) => setPriceRange(event.target.value as typeof priceRange)}
           >
-            <option value="all">Any</option>
-            <option value="under-70">Under €70/day</option>
-            <option value="70-85">€70–€85/day</option>
-            <option value="85-plus">€85+/day</option>
+            <option value="all">Qualsiasi</option>
+            <option value="under-70">Sotto €70/giorno</option>
+            <option value="70-85">€70–€85/giorno</option>
+            <option value="85-plus">€85+/giorno</option>
           </select>
         </label>
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((vehicle) => (
-          <FleetCard key={vehicle.id} vehicle={vehicle} locale={locale} />
+          <FleetCard key={vehicle.id} vehicle={vehicle} />
         ))}
       </div>
     </div>

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 
-import { locales } from '@/i18n/request';
 import { vehicles } from '@/data/vehicles';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,19 +18,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/cookies',
   ];
 
-  const localeRoutes = locales.flatMap((locale) =>
-    routes.map((route) => ({
-      url: `${baseUrl}/${locale}${route}`,
-      lastModified: new Date(),
-    }))
-  );
+  const localeRoutes = routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+  }));
 
-  const vehicleRoutes = locales.flatMap((locale) =>
-    vehicles.map((vehicle) => ({
-      url: `${baseUrl}/${locale}/fleet/${vehicle.slug}`,
-      lastModified: new Date(),
-    }))
-  );
+  const vehicleRoutes = vehicles.map((vehicle) => ({
+    url: `${baseUrl}/fleet/${vehicle.slug}`,
+    lastModified: new Date(),
+  }));
 
   return [...localeRoutes, ...vehicleRoutes];
 }

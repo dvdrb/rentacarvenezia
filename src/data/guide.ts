@@ -10,37 +10,37 @@ export type GuideEntry = {
 export const guideEntries: GuideEntry[] = [
   {
     slug: 'venice',
-    title: 'Venice',
-    summary: 'Arrive early, drift through the lagoon, and let the city reveal itself at golden hour.',
+    title: 'Venezia',
+    summary: 'Arriva presto, attraversa la laguna e lascia che la città si riveli alla luce dorata.',
     image: '/images/guide-venice.svg',
-    highlights: ['St. Mark’s Basilica', 'Rialto markets', 'Sunset vaporetto ride']
+    highlights: ['Basilica di San Marco', 'Mercati di Rialto', 'Giro in vaporetto al tramonto']
   },
   {
     slug: 'treviso',
     title: 'Treviso',
-    summary: 'A refined city of canals, palazzi, and espresso rituals minutes from our office.',
+    summary: 'Una città elegante di canali, palazzi e rituali dell’espresso a pochi minuti dal nostro ufficio.',
     image: '/images/guide-treviso.svg',
-    highlights: ['Piazza dei Signori', 'Sile river walk', 'Local prosecco bars']
+    highlights: ['Piazza dei Signori', 'Passeggiata sul Sile', 'Enoteche di prosecco locali']
   },
   {
     slug: 'valdobbiadene',
     title: 'Valdobbiadene',
-    summary: 'Vineyards stretch over rolling hills—ideal for a curated Prosecco route.',
+    summary: 'Vigneti che si estendono sulle colline, ideali per una rotta del Prosecco su misura.',
     image: '/images/guide-valdobbiadene.svg',
-    highlights: ['Cartizze hill', 'Boutique tastings', 'Scenic ridge drives']
+    highlights: ['Colle di Cartizze', 'Degustazioni boutique', 'Strade panoramiche di cresta']
   },
   {
     slug: 'dolomites',
-    title: 'Dolomites',
-    summary: 'Epic alpine panoramas and sophisticated resorts within a comfortable drive.',
+    title: 'Dolomiti',
+    summary: 'Panorami alpini iconici e resort raffinati a distanza comoda.',
     image: '/images/guide-dolomites.svg',
-    highlights: ['Alpe di Siusi', 'Lake Misurina', 'Luxury mountain spas']
+    highlights: ['Alpe di Siusi', 'Lago di Misurina', 'Spa di montagna di lusso']
   },
   {
     slug: 'cortina',
     title: 'Cortina d’Ampezzo',
-    summary: 'Italy’s most elegant alpine retreat—boutiques, cafés, and world-class trails.',
+    summary: 'Il rifugio alpino più elegante d’Italia tra boutique, caffè e sentieri iconici.',
     image: '/images/guide-cortina.svg',
-    highlights: ['Corso Italia', 'Tofana cable car', 'Après-ski lounges']
+    highlights: ['Corso Italia', 'Funivia Tofana', 'Après-ski lounge']
   }
 ];

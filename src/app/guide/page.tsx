@@ -4,15 +4,11 @@ import Image from 'next/image';
 import { guideEntries } from '@/data/guide';
 import { Card } from '@/components/ui/card';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Guide | rentacarvenezia.it',
-    description: 'Boutique travel guide to Venice, Treviso, and the Dolomites.',
-    alternates: { canonical: `/${params.locale}/guide` },
+    title: 'Guida | rentacarvenezia.it',
+    description: 'Guida boutique a Venezia, Treviso e alle Dolomiti.',
+    alternates: { canonical: '/guide' },
   };
 }
 
@@ -20,10 +16,10 @@ export default function GuidePage() {
   return (
     <main className="container py-16">
       <div className="max-w-3xl">
-        <p className="text-xs uppercase tracking-widest text-accent">Guide</p>
-        <h1 className="mt-2 text-4xl font-serif">Places to visit</h1>
+        <p className="text-xs uppercase tracking-widest text-accent">Guida</p>
+        <h1 className="mt-2 text-4xl font-serif">Luoghi da visitare</h1>
         <p className="mt-3 text-sm text-[#c0b6a8]">
-          Curated itineraries for Venice, Treviso, the Prosecco hills, and the Dolomites.
+          Itinerari curati per Venezia, Treviso, le colline del Prosecco e le Dolomiti.
         </p>
       </div>
 

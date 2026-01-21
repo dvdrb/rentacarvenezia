@@ -5,15 +5,11 @@ import { MapPin } from 'lucide-react';
 import { locations } from '@/data/locations';
 import { Card } from '@/components/ui/card';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Locations | rentacarvenezia.it',
-    description: 'Pickup locations at Venice Marco Polo Airport and Treviso.',
-    alternates: { canonical: `/${params.locale}/locations` },
+    title: 'Sedi | rentacarvenezia.it',
+    description: 'Punti di ritiro presso Venezia Marco Polo e Treviso.',
+    alternates: { canonical: '/locations' },
   };
 }
 
@@ -21,11 +17,11 @@ export default function LocationsPage() {
   return (
     <main className="container py-16">
       <div className="flex flex-col gap-4">
-        <p className="text-xs uppercase tracking-widest text-accent">Locations</p>
-        <h1 className="text-4xl font-serif">Venice & Treviso pickup points</h1>
+        <p className="text-xs uppercase tracking-widest text-accent">Sedi</p>
+        <h1 className="text-4xl font-serif">Punti di ritiro a Venezia e Treviso</h1>
         <p className="max-w-2xl text-sm text-[#c0b6a8]">
-          Venice Marco Polo Airport, Arrival Hall 1 and Treviso office support quick handovers and
-          seamless departures.
+          Venezia Marco Polo Arrivi 1 e l’ufficio di Treviso garantiscono consegne rapide e senza
+          attese.
         </p>
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -42,7 +38,7 @@ export default function LocationsPage() {
                   )}`}
                   className="mt-3 inline-flex text-sm text-accent hover:underline"
                 >
-                  Open in Google Maps
+                  Apri in Google Maps
                 </Link>
               </div>
             </div>
@@ -50,10 +46,10 @@ export default function LocationsPage() {
         ))}
       </div>
       <div className="mt-10 rounded-2xl border border-border bg-muted/60 p-6 text-sm text-[#c0b6a8]">
-        <p className="text-xs uppercase tracking-widest text-accent">Pickup context</p>
+        <p className="text-xs uppercase tracking-widest text-accent">Contesto ritiro</p>
         <p className="mt-3">
-          Venice Marco Polo Airport pickups are coordinated inside Arrival Hall 1. Treviso
-          reservations are managed from our office at Via Le Canevare, 30, 31100 Treviso TV.
+          I ritiri a Venezia Marco Polo sono coordinati presso Arrivi 1. Le prenotazioni di Treviso
+          sono gestite dal nostro ufficio in Via Le Canevare, 30, 31100 Treviso TV.
         </p>
       </div>
     </main>

@@ -12,25 +12,25 @@ import { insuranceRates } from '@/lib/pricing';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string; locale: string };
+  params: { slug: string };
 }): Promise<Metadata> {
   const vehicle = vehicles.find((item) => item.slug === params.slug);
   if (!vehicle) {
     return {
-      title: 'Vehicle not found | rentacarvenezia.it',
+      title: 'Veicolo non trovato | rentacarvenezia.it',
     };
   }
   return {
     title: `${vehicle.name} | rentacarvenezia.it`,
-    description: `Premium ${vehicle.category} rental: ${vehicle.name}.`,
-    alternates: { canonical: `/${params.locale}/fleet/${vehicle.slug}` },
+    description: `Noleggio premium ${vehicle.category}: ${vehicle.name}.`,
+    alternates: { canonical: `/fleet/${vehicle.slug}` },
   };
 }
 
 export default function VehicleDetailPage({
   params,
 }: {
-  params: { slug: string; locale: string };
+  params: { slug: string };
 }) {
   const vehicle = vehicles.find((item) => item.slug === params.slug);
 
@@ -64,8 +64,8 @@ export default function VehicleDetailPage({
             <Badge variant="muted">{vehicle.category}</Badge>
             <h1 className="mt-4 text-4xl font-serif">{vehicle.name}</h1>
             <p className="mt-2 text-sm text-[#c0b6a8]">
-              {vehicle.transmission} • {vehicle.passengers} seats • {vehicle.doors} doors •{' '}
-              {vehicle.airConditioning ? 'A/C' : 'No A/C'}
+              {vehicle.transmission} • {vehicle.passengers} posti • {vehicle.doors} porte •{' '}
+              {vehicle.airConditioning ? 'Climatizzata' : 'Senza clima'}
             </p>
           </div>
         </div>
@@ -82,8 +82,8 @@ export default function VehicleDetailPage({
           </div>
 
           <Card className="p-6">
-            <h2 className="text-xl font-semibold">Pricing tiers</h2>
-            <p className="mt-2 text-sm text-[#c0b6a8]">Rates per day based on rental duration.</p>
+            <h2 className="text-xl font-semibold">Fasce tariffarie</h2>
+            <p className="mt-2 text-sm text-[#c0b6a8]">Tariffe giornaliere in base alla durata.</p>
             <div className="mt-6 grid gap-4">
               {vehicle.rates.map((rate) => (
                 <div
@@ -94,16 +94,16 @@ export default function VehicleDetailPage({
                     <p className="text-sm font-medium">{rate.label}</p>
                     {rate.note && <p className="text-xs text-[#c0b6a8]">{rate.note}</p>}
                   </div>
-                  <p className="text-lg font-semibold">€{rate.pricePerDay}/day</p>
+                  <p className="text-lg font-semibold">€{rate.pricePerDay}/giorno</p>
                 </div>
               ))}
             </div>
           </Card>
 
           <Card className="p-6">
-            <h2 className="text-xl font-semibold">Insurance options</h2>
+            <h2 className="text-xl font-semibold">Opzioni assicurative</h2>
             <p className="mt-2 text-sm text-[#c0b6a8]">
-              Choose the protection tier that matches your travel style.
+              Scegli il livello di copertura che preferisci.
             </p>
             <div className="mt-4 grid gap-3">
               {Object.entries(insuranceRates).map(([tier, rate]) => (
@@ -113,17 +113,17 @@ export default function VehicleDetailPage({
                 >
                   <div>
                     <p className="text-sm font-medium">{tier}</p>
-                    <p className="text-xs text-[#c0b6a8]">Deposit & excess details in terms.</p>
+                    <p className="text-xs text-[#c0b6a8]">Deposito e franchigia nei termini.</p>
                   </div>
-                  <p className="text-sm font-semibold">€{rate}/day</p>
+                  <p className="text-sm font-semibold">€{rate}/giorno</p>
                 </div>
               ))}
             </div>
             <Link
-              href={`/${params.locale}/terms`}
+              href="/terms"
               className="mt-4 inline-flex text-sm text-accent hover:underline"
             >
-              View terms
+              Vedi termini
             </Link>
           </Card>
         </div>
@@ -131,10 +131,10 @@ export default function VehicleDetailPage({
         <div className="space-y-6">
           <BookingWidget vehicleSlug={vehicle.slug} requireVehicle />
           <Card className="p-6 text-sm text-[#c0b6a8]">
-            <p className="text-xs uppercase tracking-widest text-accent">Pricing overview</p>
+            <p className="text-xs uppercase tracking-widest text-accent">Riepilogo tariffe</p>
             <p className="mt-3">
-              From €{Math.min(...vehicle.rates.map((rate) => rate.pricePerDay))}/day — transparent
-              pricing based on duration. Range: €{priceRange} per day.
+              Da €{Math.min(...vehicle.rates.map((rate) => rate.pricePerDay))}/giorno — prezzo
+              trasparente in base alla durata. Range: €{priceRange} al giorno.
             </p>
           </Card>
         </div>

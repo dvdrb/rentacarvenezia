@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
 
 import { BookingWidget } from '@/components/booking-widget';
 import { FleetCard } from '@/components/fleet-card';
@@ -10,56 +9,50 @@ import { vehicles } from '@/data/vehicles';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Premium Car Rental in Treviso & Venice | rentacarvenezia.it',
+    title: 'Noleggio auto premium a Treviso e Venezia | rentacarvenezia.it',
     description:
-      'Luxury car rental in Treviso and Venice Marco Polo Airport. No advance payment, debit cards accepted, pay on pickup.',
-    alternates: { canonical: `/${params.locale}` },
+      'Noleggio auto di lusso a Treviso e Venezia Marco Polo. Nessun pagamento anticipato, carta di debito accettata, pagamento al ritiro.',
+    alternates: { canonical: '/' },
   };
 }
 
 const testimonials = [
   {
     name: 'A. Romano',
-    quote: 'Flawless pickup at Marco Polo. The concierge treated us like VIPs.',
+    quote: 'Ritiro impeccabile a Marco Polo. Un servizio da veri VIP.',
   },
   {
     name: 'I. Novak',
-    quote: 'Elegant cars and zero stress. The no-advance payment policy is refreshing.',
+    quote: 'Auto eleganti e zero stress. Pagare al ritiro è un sollievo.',
   },
   {
     name: 'M. Petrov',
-    quote: 'Smooth booking, quick response, and pristine vehicles. Highly recommended.',
+    quote: 'Prenotazione fluida, risposta rapida e auto perfette. Consigliatissimo.',
   },
 ];
 
 const faqs = [
   {
-    question: 'Is a credit card required?',
-    answer: 'No. We accept debit cards and payment on pickup with no advance payment.',
+    question: 'È necessaria la carta di credito?',
+    answer: 'No. Accettiamo carte di debito e pagamento al ritiro senza anticipo.',
   },
   {
-    question: 'Can I add full insurance?',
-    answer: 'Yes, choose Basic, Medium, or Premium tiers depending on your comfort level.',
+    question: 'Posso aggiungere una copertura completa?',
+    answer: 'Sì, scegli tra Basic, Medium o Premium in base alle tue esigenze.',
   },
   {
-    question: 'Where do I meet the team at the airport?',
-    answer: 'We greet you at Venice Marco Polo Arrival Hall 1 or Treviso arrivals.',
+    question: 'Dove incontro il team in aeroporto?',
+    answer: 'Ti incontriamo al Venice Marco Polo Arrivi 1 o agli arrivi di Treviso.',
   },
   {
-    question: 'How quickly can I confirm?',
-    answer: 'We confirm by WhatsApp, phone, or email shortly after your request.',
+    question: 'Quanto velocemente ricevo conferma?',
+    answer: 'Confermiamo via WhatsApp, telefono o email poco dopo la richiesta.',
   },
 ];
 
-export default async function HomePage({ params }: { params: { locale: string } }) {
-  const t = await getTranslations();
-
+export default function HomePage() {
   return (
     <main>
       <section className="relative overflow-hidden bg-background">
@@ -75,16 +68,15 @@ export default async function HomePage({ params }: { params: { locale: string } 
         <div className="relative">
           <div className="container grid gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
             <HeroContent
-              locale={params.locale}
-              headline={t('hero.headline')}
-              subhead={t('hero.subhead')}
-              primaryCtaLabel={t('cta.checkAvailability')}
-              secondaryCtaLabel="Browse fleet"
+              headline="Noleggio auto premium a Treviso e Venezia"
+              subhead="Nessun pagamento anticipato. Carte di debito accettate. Conferma rapida."
+              primaryCtaLabel="Verifica disponibilità"
+              secondaryCtaLabel="Esplora la flotta"
               trustItems={[
-                t('trust.noAdvance'),
-                t('trust.debitAccepted'),
-                t('trust.insurance'),
-                t('trust.airportPickup'),
+                'Nessun pagamento anticipato',
+                'Carte di debito accettate / senza carta di credito',
+                'Coperture assicurative complete',
+                'Ritiro in aeroporto: Treviso e Venezia Marco Polo',
               ]}
             />
             <BookingWidget className="bg-background/90" />
@@ -95,16 +87,16 @@ export default async function HomePage({ params }: { params: { locale: string } 
       <section className="container py-16">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-widest text-accent">Featured fleet</p>
-            <h2 className="mt-2 text-3xl font-serif">Signature vehicles</h2>
+            <p className="text-xs uppercase tracking-widest text-accent">Flotta in evidenza</p>
+            <h2 className="mt-2 text-3xl font-serif">Veicoli selezionati</h2>
           </div>
           <Button asChild variant="outline">
-            <Link href={`/${params.locale}/fleet`}>View all</Link>
+            <Link href="/fleet">Vedi tutti</Link>
           </Button>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {vehicles.slice(0, 6).map((vehicle) => (
-            <FleetCard key={vehicle.id} vehicle={vehicle} locale={params.locale} />
+            <FleetCard key={vehicle.id} vehicle={vehicle} />
           ))}
         </div>
       </section>
@@ -112,17 +104,17 @@ export default async function HomePage({ params }: { params: { locale: string } 
       <section className="bg-muted py-16">
         <div className="container grid gap-8 lg:grid-cols-3">
           <div>
-            <p className="text-xs uppercase tracking-widest text-accent">How it works</p>
-            <h2 className="mt-2 text-3xl font-serif">A concierge-style booking flow</h2>
+            <p className="text-xs uppercase tracking-widest text-accent">Come funziona</p>
+            <h2 className="mt-2 text-3xl font-serif">Un percorso concierge</h2>
             <p className="mt-4 text-sm text-[#c0b6a8]">
-              Designed for speed, clarity, and a refined travel experience.
+              Studiato per rapidità, chiarezza e un’esperienza di viaggio raffinata.
             </p>
           </div>
           <div className="space-y-6">
             {[
-              { title: 'Choose your car', detail: 'Select the vehicle and travel dates.' },
-              { title: 'Send your request', detail: 'We confirm availability within hours.' },
-              { title: 'Confirm with our team', detail: 'WhatsApp, phone, or email support.' },
+              { title: 'Scegli l’auto', detail: 'Seleziona il veicolo e le date.' },
+              { title: 'Invia la richiesta', detail: 'Confermiamo la disponibilità in poche ore.' },
+              { title: 'Conferma con il team', detail: 'Supporto via WhatsApp, telefono o email.' },
             ].map((step, index) => (
               <div key={step.title} className="rounded-xl border border-border bg-background p-6">
                 <p className="text-xs uppercase tracking-widest text-accent">0{index + 1}</p>
@@ -132,13 +124,13 @@ export default async function HomePage({ params }: { params: { locale: string } 
             ))}
           </div>
           <div className="rounded-2xl border border-border bg-background p-6">
-            <p className="text-xs uppercase tracking-widest text-accent">Luxury promise</p>
-            <h3 className="mt-2 text-xl font-serif">Always ready on arrival</h3>
+            <p className="text-xs uppercase tracking-widest text-accent">Promessa luxury</p>
+            <h3 className="mt-2 text-xl font-serif">Pronti al tuo arrivo</h3>
             <p className="mt-2 text-sm text-[#c0b6a8]">
-              We schedule pickups at Venice Marco Polo and Treviso airports with real-time coordination.
+              Programmiamo il ritiro a Venezia Marco Polo e Treviso con coordinamento in tempo reale.
             </p>
             <Button asChild className="mt-6" variant="outline">
-              <Link href={`/${params.locale}/locations`}>View pickup points</Link>
+              <Link href="/locations">Vedi i punti di ritiro</Link>
             </Button>
           </div>
         </div>
@@ -147,8 +139,8 @@ export default async function HomePage({ params }: { params: { locale: string } 
       <section className="container py-16">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
           <div>
-            <p className="text-xs uppercase tracking-widest text-accent">Testimonials</p>
-            <h2 className="mt-2 text-3xl font-serif">Guests who travel with us</h2>
+            <p className="text-xs uppercase tracking-widest text-accent">Testimonianze</p>
+            <h2 className="mt-2 text-3xl font-serif">Ospiti che viaggiano con noi</h2>
             <div className="mt-6 space-y-4">
               {testimonials.map((testimonial) => (
                 <div
@@ -165,7 +157,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
           </div>
           <div>
             <p className="text-xs uppercase tracking-widest text-accent">FAQ</p>
-            <h2 className="mt-2 text-3xl font-serif">Answers before you arrive</h2>
+            <h2 className="mt-2 text-3xl font-serif">Risposte prima del viaggio</h2>
             <Accordion type="single" collapsible className="mt-6">
               {faqs.map((faq) => (
                 <AccordionItem key={faq.question} value={faq.question}>
@@ -175,7 +167,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
               ))}
             </Accordion>
             <Button asChild variant="outline" className="mt-6">
-              <Link href={`/${params.locale}/faq`}>Visit full FAQ</Link>
+              <Link href="/faq">Vai alle FAQ complete</Link>
             </Button>
           </div>
         </div>

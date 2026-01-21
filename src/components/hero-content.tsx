@@ -7,7 +7,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 type HeroContentProps = {
-  locale: string;
   headline: string;
   subhead: string;
   trustItems: string[];
@@ -16,7 +15,6 @@ type HeroContentProps = {
 };
 
 export function HeroContent({
-  locale,
   headline,
   subhead,
   trustItems,
@@ -30,15 +28,15 @@ export function HeroContent({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <Badge>Italian luxury travel</Badge>
+      <Badge>Viaggi di lusso in Italia</Badge>
       <h1 className="text-balance font-serif text-4xl font-semibold md:text-5xl">{headline}</h1>
       <p className="max-w-xl text-lg text-[#c0b6a8]">{subhead}</p>
       <div className="flex flex-wrap gap-4">
         <Button asChild size="lg">
-          <Link href={`/${locale}/book`}>{primaryCtaLabel}</Link>
+          <Link href="/book">{primaryCtaLabel}</Link>
         </Button>
         <Button asChild variant="outline" size="lg">
-          <Link href={`/${locale}/fleet`}>{secondaryCtaLabel}</Link>
+          <Link href="/fleet">{secondaryCtaLabel}</Link>
         </Button>
       </div>
       <div className="mt-8 grid gap-3 text-sm text-[#c0b6a8] md:grid-cols-2">

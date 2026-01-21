@@ -15,10 +15,9 @@ const categoryLabel: Record<Vehicle['category'], string> = {
 
 type FleetCardProps = {
   vehicle: Vehicle;
-  locale: string;
 };
 
-export function FleetCard({ vehicle, locale }: FleetCardProps) {
+export function FleetCard({ vehicle }: FleetCardProps) {
   const minRate = Math.min(...vehicle.rates.map((rate) => rate.pricePerDay));
   return (
     <Card className="overflow-hidden">
@@ -31,15 +30,15 @@ export function FleetCard({ vehicle, locale }: FleetCardProps) {
           <Badge variant="muted">{categoryLabel[vehicle.category]}</Badge>
         </div>
         <div className="text-sm text-[#c0b6a8]">
-          {vehicle.transmission} • {vehicle.passengers} seats • {vehicle.doors} doors
+          {vehicle.transmission} • {vehicle.passengers} posti • {vehicle.doors} porte
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#c0b6a8]">From</p>
-            <p className="text-xl font-semibold">€{minRate}/day</p>
+            <p className="text-xs uppercase tracking-widest text-[#c0b6a8]">Da</p>
+            <p className="text-xl font-semibold">€{minRate}/giorno</p>
           </div>
           <Button asChild size="sm" variant="outline">
-            <Link href={`/${locale}/fleet/${vehicle.slug}`}>View details</Link>
+            <Link href={`/fleet/${vehicle.slug}`}>Dettagli</Link>
           </Button>
         </div>
       </CardContent>
